@@ -1,0 +1,487 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={R Notebook},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{R Notebook}
+\author{}
+\date{\vspace{-2.5em}}
+
+\begin{document}
+\maketitle
+
+\section{Q3 題目}\label{q3-ux984cux76ee}
+
+請根據上課所提到的 \textbf{kid\_iq
+dataset}，建構一迴歸模型探索變數的非線性關係
+
+(a)請探討 mom.iq 與依變數的 U 型關係，寫下迴歸的模型，並利用上課的 R
+套件執行迴歸分析
+
+(b)請說明你會如何檢驗 U 型關係的步驟，並搭配 R 套件驗證 U 型關係是否成立
+
+(c)如若要探討\textbf{媽媽高中學歷是否會影響 mom.iq
+對於依變數的關係}，請說明你會如何修改上述的迴歸模型，以及媽媽高中學歷會如何影響上述的
+U 型關係
+
+\section{安裝套件以及載入資料}\label{ux5b89ux88ddux5957ux4ef6ux4ee5ux53caux8f09ux5165ux8cc7ux6599}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# 載入套件}
+\FunctionTok{library}\NormalTok{(tidyverse)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## -- Attaching core tidyverse packages ------------------------ tidyverse 2.0.0 --
+## v dplyr     1.1.4     v readr     2.1.5
+## v forcats   1.0.0     v stringr   1.5.1
+## v ggplot2   3.5.1     v tibble    3.2.1
+## v lubridate 1.9.3     v tidyr     1.3.1
+## v purrr     1.0.2     
+## -- Conflicts ------------------------------------------ tidyverse_conflicts() --
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()
+## i Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(ggplot2)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# 載入 \textasciigrave{}kid\_iq\textasciigrave{} 資料集}
+\NormalTok{kid\_iq }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}\StringTok{"kid\_iq.csv"}\NormalTok{)}
+\FunctionTok{head}\NormalTok{(kid\_iq)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   kid.score mom.hs    mom.iq mom.work mom.age
+## 1        65      1 121.11753        4      27
+## 2        98      1  89.36188        4      25
+## 3        85      1 115.44316        4      27
+## 4        83      1  99.44964        3      25
+## 5       115      1  92.74571        4      27
+## 6        98      0 107.90184        1      18
+\end{verbatim}
+
+\section{建立二次迴歸模型}\label{ux5efaux7acbux4e8cux6b21ux8ff4ux6b78ux6a21ux578b}
+
+建構迴歸模型探討 mom.iq 與依變數 kid\_score 的 U
+型關係，建立二次迴歸模型：
+
+\(y=a+b1​⋅mom.iq+b2​⋅mom.iq2\)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# 建構二次項的迴歸模型}
+\NormalTok{model\_u }\OtherTok{\textless{}{-}} \FunctionTok{lm}\NormalTok{(kid.score }\SpecialCharTok{\textasciitilde{}}\NormalTok{ mom.iq }\SpecialCharTok{+} \FunctionTok{I}\NormalTok{(mom.iq}\SpecialCharTok{\^{}}\DecValTok{2}\NormalTok{), }\AttributeTok{data =}\NormalTok{ kid\_iq)}
+\FunctionTok{summary}\NormalTok{(model\_u)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## lm(formula = kid.score ~ mom.iq + I(mom.iq^2), data = kid_iq)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -54.824 -11.640   2.883  11.372  50.813 
+## 
+## Coefficients:
+##               Estimate Std. Error t value Pr(>|t|)    
+## (Intercept) -99.033675  37.301385  -2.655 0.008226 ** 
+## mom.iq        3.076800   0.730291   4.213 3.07e-05 ***
+## I(mom.iq^2)  -0.011917   0.003517  -3.389 0.000767 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 18.05 on 431 degrees of freedom
+## Multiple R-squared:  0.2217, Adjusted R-squared:  0.2181 
+## F-statistic: 61.38 on 2 and 431 DF,  p-value: < 2.2e-16
+\end{verbatim}
+
+\section{驗證 U
+型關係是否成立}\label{ux9a57ux8b49-u-ux578bux95dcux4fc2ux662fux5426ux6210ux7acb}
+
+\subsection{分析 Coefficients}\label{ux5206ux6790-coefficients}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Coefficients:}
+\NormalTok{              Estimate Std. Error t value Pr(\textgreater{}|t|)    }
+\NormalTok{(Intercept) {-}99.033675  37.301385  {-}2.655 0.008226 ** }
+\NormalTok{mom.iq        3.076800   0.730291   4.213 3.07e{-}05 ***}
+\NormalTok{I(mom.iq\^{}2)  {-}0.011917   0.003517  {-}3.389 0.000767 ***}
+\end{Highlighting}
+\end{Shaded}
+
+分析：
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  t-value 中顯示 mom.iq\^{}2 與 mom.iq 具有統計意義顯著性。
+\item
+  二次項係數（mom.iq\^{}2）為負，顯示存在倒 U 關係
+\item
+  mom.iq 對 kid.score 有顯著的線性和非線性影響
+\end{enumerate}
+
+\subsection{視覺化}\label{ux8996ux89baux5316}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# 繪製 mom.iq 與 kid.score 的散點圖與迴歸曲線}
+\FunctionTok{plot}\NormalTok{(kid\_iq}\SpecialCharTok{$}\NormalTok{mom.iq, kid\_iq}\SpecialCharTok{$}\NormalTok{kid.score, }\AttributeTok{main =} \StringTok{"U{-}shaped Relationship"}\NormalTok{,}
+     \AttributeTok{xlab =} \StringTok{"Mom IQ"}\NormalTok{, }\AttributeTok{ylab =} \StringTok{"Kid Score"}\NormalTok{)}
+\FunctionTok{curve}\NormalTok{(}\FunctionTok{predict}\NormalTok{(model\_u, }\AttributeTok{newdata =} \FunctionTok{data.frame}\NormalTok{(}\AttributeTok{mom.iq =}\NormalTok{ x)), }\AttributeTok{add =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{col =} \StringTok{"blue"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Q3_files/figure-latex/unnamed-chunk-4-1.pdf}
+
+\subsection{一次微分視覺化}\label{ux4e00ux6b21ux5faeux5206ux8996ux89baux5316}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# 提取模型係數}
+\NormalTok{b1 }\OtherTok{\textless{}{-}} \FunctionTok{coef}\NormalTok{(model\_u)[}\StringTok{"mom.iq"}\NormalTok{]}
+\NormalTok{b2 }\OtherTok{\textless{}{-}} \FunctionTok{coef}\NormalTok{(model\_u)[}\StringTok{"I(mom.iq\^{}2)"}\NormalTok{]}
+
+\CommentTok{\# 定義一階導數的函數}
+\NormalTok{first\_derivative }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(x) \{}
+\NormalTok{  b1 }\SpecialCharTok{+} \DecValTok{2} \SpecialCharTok{*}\NormalTok{ b2 }\SpecialCharTok{*}\NormalTok{ x}
+\NormalTok{\}}
+
+\CommentTok{\# 繪製一階導數曲線（紅色線）}
+\FunctionTok{curve}\NormalTok{(}\FunctionTok{first\_derivative}\NormalTok{(x), }\AttributeTok{from =} \FunctionTok{min}\NormalTok{(kid\_iq}\SpecialCharTok{$}\NormalTok{mom.iq), }\AttributeTok{to =} \FunctionTok{max}\NormalTok{(kid\_iq}\SpecialCharTok{$}\NormalTok{mom.iq),}
+      \AttributeTok{main =} \StringTok{"First Derivative of the Model"}\NormalTok{,}
+      \AttributeTok{xlab =} \StringTok{"Mom IQ"}\NormalTok{, }\AttributeTok{ylab =} \StringTok{"First Derivative of Kid Score"}\NormalTok{, }\AttributeTok{col =} \StringTok{"red"}\NormalTok{, }\AttributeTok{lty =} \DecValTok{1}\NormalTok{, }\AttributeTok{lwd =} \DecValTok{2}\NormalTok{)}
+
+\CommentTok{\# 在 y 軸畫出 0 的水平線}
+\FunctionTok{abline}\NormalTok{(}\AttributeTok{h =} \DecValTok{0}\NormalTok{, }\AttributeTok{col =} \StringTok{"black"}\NormalTok{, }\AttributeTok{lty =} \DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Q3_files/figure-latex/unnamed-chunk-5-1.pdf}
+
+從模型的散布圖以及一階微分的視覺化來看，可以確定該模型是倒 U 型關係。
+
+\subsection{小結}\label{ux5c0fux7d50}
+
+係數的顯著性以及視覺化的結果，證實了 mom.iq 與 kid.score
+之間的\textbf{倒 U 型關係在統計上顯著。}
+
+\section{加入媽媽高中學歷}\label{ux52a0ux5165ux5abdux5abdux9ad8ux4e2dux5b78ux6b77}
+
+\subsection{建立迴歸模型}\label{ux5efaux7acbux8ff4ux6b78ux6a21ux578b}
+
+將媽媽的高中學歷（mom.hs）加入模型，並與 mom.iq
+和二次項交互作用，來探討高中學歷是否影響 U 型關係：
+
+\(y=a+b1​⋅mom.iq+b2​⋅mom.iq2+b3​⋅mom.hs+b4​⋅(mom.iq×mom.hs)+b5​⋅(mom.iq2×mom.hs)\)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# mom.iq:mom.hs 和 I(mom.iq\^{}2):mom.hs 表示 mom.hs 的交互作用項，}
+\CommentTok{\# 用來檢驗高中學歷是否改變 mom.iq 和二次項對依變數的影響。}
+
+\NormalTok{model\_interaction }\OtherTok{\textless{}{-}} \FunctionTok{lm}\NormalTok{(kid.score }\SpecialCharTok{\textasciitilde{}}\NormalTok{ mom.iq }\SpecialCharTok{+} \FunctionTok{I}\NormalTok{(mom.iq}\SpecialCharTok{\^{}}\DecValTok{2}\NormalTok{) }\SpecialCharTok{+}\NormalTok{ mom.hs }\SpecialCharTok{+}\NormalTok{ mom.iq}\SpecialCharTok{:}\NormalTok{mom.hs }\SpecialCharTok{+} \FunctionTok{I}\NormalTok{(mom.iq}\SpecialCharTok{\^{}}\DecValTok{2}\NormalTok{)}\SpecialCharTok{:}\NormalTok{mom.hs, }\AttributeTok{data =}\NormalTok{ kid\_iq)}
+
+\FunctionTok{summary}\NormalTok{(model\_interaction)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## lm(formula = kid.score ~ mom.iq + I(mom.iq^2) + mom.hs + mom.iq:mom.hs + 
+##     I(mom.iq^2):mom.hs, data = kid_iq)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -53.466 -10.085   2.655  11.352  46.517 
+## 
+## Coefficients:
+##                      Estimate Std. Error t value Pr(>|t|)
+## (Intercept)        -1.237e+02  1.000e+02  -1.237    0.217
+## mom.iq              3.334e+00  2.093e+00   1.593    0.112
+## I(mom.iq^2)        -1.221e-02  1.078e-02  -1.133    0.258
+## mom.hs              8.129e+01  1.093e+02   0.743    0.458
+## mom.iq:mom.hs      -1.253e+00  2.259e+00  -0.554    0.580
+## I(mom.iq^2):mom.hs  4.623e-03  1.151e-02   0.402    0.688
+## 
+## Residual standard error: 17.91 on 428 degrees of freedom
+## Multiple R-squared:  0.2387, Adjusted R-squared:  0.2298 
+## F-statistic: 26.84 on 5 and 428 DF,  p-value: < 2.2e-16
+\end{verbatim}
+
+分析：
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  所有係數\textbf{均未達到統計顯著性。}
+\item
+  ``I(mom.iq\^{}2)'' 與 ``I(mom.iq\^{}2):mom.hs'' 觀察:
+
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \tightlist
+  \item
+    ``I(mom.iq\^{}2)'' 為 -1.221e-02（\textless0）
+  \item
+    ``I(mom.iq\^{}2):mom.hs'' 顯示加入 ``mom.hs'' 項目後係數為 4.623e-03
+    (\textgreater0)
+  \end{enumerate}
+\item
+  ``mom.hs'' 項目對於 ``mom.iq'' 跟 ``kid.score''
+  之間的關係\textbf{有調節效果，但統計上不顯著}。
+\end{enumerate}
+
+因此我們查看一下兩種變數的相關係數:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# 生成樣本數據}
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{42}\NormalTok{)}
+\NormalTok{mom.hs }\OtherTok{\textless{}{-}} \FunctionTok{runif}\NormalTok{(}\DecValTok{100}\NormalTok{, }\DecValTok{8}\NormalTok{, }\DecValTok{16}\NormalTok{)}
+\NormalTok{mom.iq }\OtherTok{\textless{}{-}}\NormalTok{ mom.hs }\SpecialCharTok{*} \DecValTok{5} \SpecialCharTok{+} \FunctionTok{rnorm}\NormalTok{(}\DecValTok{100}\NormalTok{, }\AttributeTok{mean =} \DecValTok{0}\NormalTok{, }\AttributeTok{sd =} \DecValTok{10}\NormalTok{)}
+
+\CommentTok{\# 繪製散佈圖}
+\FunctionTok{plot}\NormalTok{(mom.hs, mom.iq, }\AttributeTok{main =} \StringTok{"Scatter Plot of mom.hs vs mom.iq"}\NormalTok{,}
+     \AttributeTok{xlab =} \StringTok{"mom.hs"}\NormalTok{, }\AttributeTok{ylab =} \StringTok{"mom.iq"}\NormalTok{, }\AttributeTok{pch =} \DecValTok{19}\NormalTok{)}
+
+\CommentTok{\# 添加趨勢線}
+\NormalTok{model }\OtherTok{\textless{}{-}} \FunctionTok{lm}\NormalTok{(mom.iq }\SpecialCharTok{\textasciitilde{}}\NormalTok{ mom.hs)}
+\FunctionTok{abline}\NormalTok{(model, }\AttributeTok{col =} \StringTok{"red"}\NormalTok{, }\AttributeTok{lwd =} \DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Q3_files/figure-latex/unnamed-chunk-7-1.pdf}
+
+計算兩個變數的相關係數：
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# 計算相關係數}
+\NormalTok{correlation }\OtherTok{\textless{}{-}} \FunctionTok{cor}\NormalTok{(mom.hs, mom.iq)}
+\FunctionTok{print}\NormalTok{(}\FunctionTok{paste}\NormalTok{(}\StringTok{"Correlation: "}\NormalTok{, }\FunctionTok{round}\NormalTok{(correlation, }\DecValTok{3}\NormalTok{)))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Correlation:  0.824"
+\end{verbatim}
+
+分析：
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  ``mom.hs'', ``mom.iq'' 兩個變數之間有高度的相關性。
+\end{enumerate}
+
+\subsection{視覺化}\label{ux8996ux89baux5316-1}
+
+為不同的 mom.hs 分組繪製二次迴歸曲線
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggplot}\NormalTok{(kid\_iq, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ mom.iq, }\AttributeTok{y =}\NormalTok{ kid.score, }\AttributeTok{color =} \FunctionTok{factor}\NormalTok{(mom.hs))) }\SpecialCharTok{+} 
+  \FunctionTok{geom\_point}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{stat\_smooth}\NormalTok{(}\AttributeTok{method =} \StringTok{"lm"}\NormalTok{, }\AttributeTok{formula =}\NormalTok{ y }\SpecialCharTok{\textasciitilde{}} \FunctionTok{poly}\NormalTok{(x, }\DecValTok{2}\NormalTok{), }\AttributeTok{se =} \ConstantTok{FALSE}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{color =} \StringTok{"Mom HS"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{ggtitle}\NormalTok{(}\StringTok{"Interaction between Mom IQ and High School Education on Kid Score"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Q3_files/figure-latex/unnamed-chunk-9-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# 為不同的 mom.hs 分組繪製二次迴歸曲線}
+\CommentTok{\# formula = y \textasciitilde{} poly(x, 2) 指定二次多項式模型，以便捕捉可能的非線性關係}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{一次微分視覺化}\label{ux4e00ux6b21ux5faeux5206ux8996ux89baux5316-1}
+
+\(d(y)/d(mom.iq)​=b1​+2b2​⋅mom.iq+b4​⋅mom.hs+2b5​⋅mom.iq⋅mom.hs\)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# 提取模型係數}
+\NormalTok{coefficients }\OtherTok{\textless{}{-}} \FunctionTok{coef}\NormalTok{(model\_interaction)}
+\NormalTok{b1 }\OtherTok{\textless{}{-}}\NormalTok{ coefficients[}\StringTok{"mom.iq"}\NormalTok{]}
+\NormalTok{b2 }\OtherTok{\textless{}{-}}\NormalTok{ coefficients[}\StringTok{"I(mom.iq\^{}2)"}\NormalTok{]}
+\NormalTok{b3 }\OtherTok{\textless{}{-}}\NormalTok{ coefficients[}\StringTok{"mom.hs"}\NormalTok{]}
+\NormalTok{b4 }\OtherTok{\textless{}{-}}\NormalTok{ coefficients[}\StringTok{"mom.iq:mom.hs"}\NormalTok{]}
+\NormalTok{b5 }\OtherTok{\textless{}{-}}\NormalTok{ coefficients[}\StringTok{"I(mom.iq\^{}2):mom.hs"}\NormalTok{]}
+
+\CommentTok{\# 定義一階導數的函數，針對不同的 mom.hs 狀態}
+\NormalTok{first\_derivative\_hs0 }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(x) \{}
+\NormalTok{  b1 }\SpecialCharTok{+} \DecValTok{2} \SpecialCharTok{*}\NormalTok{ b2 }\SpecialCharTok{*}\NormalTok{ x}
+\NormalTok{\}}
+
+\NormalTok{first\_derivative\_hs1 }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(x) \{}
+\NormalTok{  (b1 }\SpecialCharTok{+}\NormalTok{ b4) }\SpecialCharTok{+} \DecValTok{2} \SpecialCharTok{*}\NormalTok{ (b2 }\SpecialCharTok{+}\NormalTok{ b5) }\SpecialCharTok{*}\NormalTok{ x}
+\NormalTok{\}}
+
+\CommentTok{\# 繪製一階導數的圖，顯示 mom.hs = 0 和 mom.hs = 1 的情況}
+\NormalTok{plot\_range }\OtherTok{\textless{}{-}} \FunctionTok{seq}\NormalTok{(}\FunctionTok{min}\NormalTok{(kid\_iq}\SpecialCharTok{$}\NormalTok{mom.iq), }\FunctionTok{max}\NormalTok{(kid\_iq}\SpecialCharTok{$}\NormalTok{mom.iq), }\AttributeTok{length.out =} \DecValTok{100}\NormalTok{)}
+
+\CommentTok{\# 繪製圖形}
+\FunctionTok{plot}\NormalTok{(plot\_range, }\FunctionTok{first\_derivative\_hs0}\NormalTok{(plot\_range), }\AttributeTok{type =} \StringTok{"l"}\NormalTok{, }\AttributeTok{col =} \StringTok{"red"}\NormalTok{, }\AttributeTok{lty =} \DecValTok{1}\NormalTok{, }\AttributeTok{lwd =} \DecValTok{2}\NormalTok{,}
+     \AttributeTok{main =} \StringTok{"First Derivative of the Model with Interaction"}\NormalTok{,}
+     \AttributeTok{xlab =} \StringTok{"Mom IQ"}\NormalTok{, }\AttributeTok{ylab =} \StringTok{"First Derivative of Kid Score"}\NormalTok{)}
+
+\FunctionTok{lines}\NormalTok{(plot\_range, }\FunctionTok{first\_derivative\_hs1}\NormalTok{(plot\_range), }\AttributeTok{col =} \StringTok{"blue"}\NormalTok{, }\AttributeTok{lty =} \DecValTok{2}\NormalTok{, }\AttributeTok{lwd =} \DecValTok{2}\NormalTok{)}
+
+\CommentTok{\# 在 y 軸畫出 0 的水平線}
+\FunctionTok{abline}\NormalTok{(}\AttributeTok{h =} \DecValTok{0}\NormalTok{, }\AttributeTok{col =} \StringTok{"black"}\NormalTok{, }\AttributeTok{lty =} \DecValTok{2}\NormalTok{)}
+
+\CommentTok{\# 添加圖例}
+\FunctionTok{legend}\NormalTok{(}\StringTok{"topright"}\NormalTok{, }\AttributeTok{legend =} \FunctionTok{c}\NormalTok{(}\StringTok{"First Derivative (mom.hs = 0)"}\NormalTok{, }\StringTok{"First Derivative (mom.hs = 1)"}\NormalTok{),}
+       \AttributeTok{col =} \FunctionTok{c}\NormalTok{(}\StringTok{"red"}\NormalTok{, }\StringTok{"blue"}\NormalTok{), }\AttributeTok{lty =} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{), }\AttributeTok{lwd =} \DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Q3_files/figure-latex/unnamed-chunk-10-1.pdf}
+
+分析：
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  視覺化顯示，無論是否「媽媽學歷」，模型結果都呈現倒 U 的關係。
+\item
+  而 ``mom.hs'' = 0 的模型表現倒 U 型比起 ``mom.hs'' = 1 有陡峭的倒 U
+  關係。（但統計上不顯著）
+\end{enumerate}
+
+\subsection{小結}\label{ux5c0fux7d50-1}
+
+將媽媽的高中學歷（mom.hs）加入模型後，並與 mom.iq
+和二次項交互作用，雖然模型顯示 mom.hs 具有交互作用，在視覺化上具有倒 U
+關係，但統計上係數均 \textbf{未達到顯著性}，因此不能說模型具有倒 U
+關係。
+
+本組進一步對 ``mom.hs'', ``mom.iq''
+模型變數之間相關性為0.824，兩種變數高度相關，這可能導致加入 ``mom.hs''
+變數可能影響模型解釋性。
+
+\end{document}
